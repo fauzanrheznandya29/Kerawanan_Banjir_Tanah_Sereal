@@ -199,7 +199,7 @@ basemap_tiles = {
     "OpenStreetMap": "OpenStreetMap",
 }
 
-center = boundary.unary_union.centroid
+center = boundary.geometry.union_all().centroid
 
 if basemap_choice == "Esri Satellite":
     m = folium.Map(location=[center.y, center.x], zoom_start=14, tiles=None, control_scale=True)
