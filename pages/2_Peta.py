@@ -146,7 +146,10 @@ def load_raster_rgba(path):
 
 
 boundary, kelurahan, river = load_vector()
-rgba, raster_bounds = load_raster_rgba("data/raster/Flood_Class.tif")
+
+# TEST
+rgba = None
+raster_bounds = None
 
 # =====================================================
 # Panel kontrol (sidebar) — gaya WebGIS profesional
@@ -240,9 +243,12 @@ MeasureControl(position="topright", primary_length_unit="meters", primary_area_u
 CompassControl(position="topright").add_to(m)
 
 # Layer sesuai pilihan sidebar
-if show_raster:
+if show_raster and rgba is not None:
     ImageOverlay(
-        image=rgba, bounds=raster_bounds, opacity=opacity, name="🌊 Indeks Kerawanan Banjir"
+        image=rgba,
+        bounds=raster_bounds,
+        opacity=opacity,
+        name="🌊 Indeks Kerawanan Banjir"
     ).add_to(m)
 
 for path, label in PARAM_RASTERS:
