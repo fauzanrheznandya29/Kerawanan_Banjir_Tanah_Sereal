@@ -147,9 +147,9 @@ def load_raster_rgba(path):
 
 boundary, kelurahan, river = load_vector()
 
-# TEST
-rgba = None
-raster_bounds = None
+rgba, raster_bounds = load_raster_rgba(
+    "data/raster/Flood_Index.tif"
+)
 
 # =====================================================
 # Panel kontrol (sidebar) — gaya WebGIS profesional
